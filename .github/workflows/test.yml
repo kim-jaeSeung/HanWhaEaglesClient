@@ -1,0 +1,42 @@
+name: Build Test
+
+on:
+  # Pull Request가 생성되거나 업데이트될 때 실행
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-build:
+    name: Test Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          cache-dependency-path: './HanwhaIgilShootClient/package-lock.json'
+
+      - name: Install dependencies
+        run: |
+          cd HanwhaIgilShootClient
+          npm ci
+
+      - name: Run lint
+        run: |
+          cd HanwhaIgilShootClient
+          npm run lint
+
+      - name: Build project
+        run: |
+          cd HanwhaIgilShootClient
+          npm run build
+
+      - name: Run tests (if available)
+        run: |
+          cd HanwhaIgilShootClient
+          # npm run test (테스트가 설정되면 주석 해제)
+        continue-on-error: true
