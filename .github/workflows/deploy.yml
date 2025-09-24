@@ -3,8 +3,8 @@ name: Deploy to GitHub Pages
 on:
   # main 브랜치에 push될 때 실행
   push:
-    branches: [ main ]
-  
+    branches: [main]
+
   # 수동으로도 실행 가능
   workflow_dispatch:
 
@@ -31,7 +31,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install dependencies
         run: |
@@ -50,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './HanwhaIgilShootClient/dist'
+          path: "./HanwhaIgilShootClient/dist"
 
   # 배포 작업
   deploy:
