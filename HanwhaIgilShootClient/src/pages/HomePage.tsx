@@ -1,4 +1,6 @@
 import PlayerInfo from "../components/PlayerInfo";
+import Weather from "../components/Weather";
+import News from "../components/News";
 function HomePage() {
   return (
     <div className="flex flex-col items-center">
@@ -10,6 +12,10 @@ function HomePage() {
         />
       </div>
       <PlayerInfo />
+      <div>
+        <Weather />
+        <News />
+      </div>
     </div>
   );
 }

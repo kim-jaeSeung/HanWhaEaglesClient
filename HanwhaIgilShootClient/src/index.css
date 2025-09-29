@@ -38,3 +38,25 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* 날씨, 뉴스 배경 */
+.weather-glass {
+  /* background: rgba(255, 255, 255, 0.13); */
+  background-blend-mode: plus-lighter;
+  mix-blend-mode: normal;
+  box-shadow: -11.1504px -10.392px 48px -12px rgba(0, 0, 0, 0.15),
+    -1.8584px -1.732px 12px -8px rgba(0, 0, 0, 0.15),
+    inset 9.05px 12.91px 28.6px rgba(255, 255, 255, 0.15),
+    inset -5.88px -6.95px 26px rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5.78px);
+  -webkit-backdrop-filter: blur(5.78px); /* Safari 지원 */
+}
+
+/* 날씨 텍스트 그라데이션 */
+.text-gradient-white {
+  background: linear-gradient(180deg, #FFFFFF 15.38%, rgba(153, 153, 153, 0) 86.54%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
