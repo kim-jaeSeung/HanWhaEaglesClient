@@ -9,7 +9,7 @@ function Navigation() {
   return (
     <>
       <BestPick />
-      <nav className="font-esamanru">
+      <nav className="font-esamanru border-b border-b-silver-black mb-5">
         <div className="flex justify-between items-center p-5">
           <div className="flex items-center">
             <Link to={ROUTES.HOME}>
