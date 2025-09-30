@@ -12,7 +12,7 @@ function HomePage() {
         />
       </div>
       <PlayerInfo />
-      <div>
+      <div className="flex items-stretch w-[80%] gap-6">
         <Weather />
         <News />
       </div>
