@@ -1,47 +1,49 @@
+import { useState } from "react";
 import GlassContainer from "./GlassContainer";
-
+import news from "../constants/NewsObj";
 function News() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6; // 한 페이지당 뉴스 개수
+  const totalPages = Math.ceil(news.length / itemsPerPage);
+
+  // 현재 페이지에 표시할 뉴스 계산
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
   return (
     <GlassContainer title="뉴스">
       <div className="w-full flex-1 min-w-0">
         <div className="space-y-3 min-w-0">
-          <p className="text-white truncate">
-            '황당 부상' 안우진, 닷새 만에 수술 진행'황당 부상' 안우진, 닷새 만에
-            수술 진행'황당 부상' 안우진, 닷새 만에 수술 진행
-          </p>
-          <p className="text-white truncate">
-            한화 이글스 김태균 감독 "올시즌 목표는 플레이오프 진출" 포부 밝혀
-          </p>
-          <p className="text-white truncate">
-            류현진 시즌 첫 승 기록, 7이닝 무실점 완벽투구로 팀 승리 이끌어
-          </p>
-          <p className="text-white truncate">
-            신인 선수 이도윤, 데뷔전에서 멀티히트 기록하며 주목받아
-          </p>
-          <p className="text-white truncate">
-            한화 이글스 홈경기 관중 수 급증, 팬들의 뜨거운 성원 이어져
-          </p>
-          <p className="text-white truncate">
-            올시즌 신규 유니폼 디자인 공개, 팬들 사이에서 호평 받아
-          </p>
+          {currentNews.map((newsItems) => (
+            <p key={newsItems.id} className="text-white truncate">
+              {newsItems.title}
+            </p>
+          ))}
         </div>
       </div>
       <div className="w-[50%] flex justify-between items-center mt-4">
-        <button className="bg-main-orange rounded-full w-8 h-8 flex items-center justify-center text-white font-bold text-sm">
-          1
-        </button>
-        <button className="mini-glass-card rounded-full w-8 h-8 flex items-center justify-center text-white font-bold text-sm">
-          2
-        </button>
-        <button className="mini-glass-card rounded-full w-8 h-8 flex items-center justify-center text-white font-bold text-sm">
-          3
-        </button>
-        <button className="mini-glass-card rounded-full w-8 h-8 flex items-center justify-center text-white font-bold text-sm">
-          4
-        </button>
-        <button className="mini-glass-card rounded-full w-8 h-8 flex items-center justify-center text-white font-bold text-sm">
-          5
-        </button>
+        {Array.from({ length: totalPages }, (_, index) => {
+          const pageNumber = index + 1;
+          return (
+            <button
+              key={pageNumber}
+              onClick={() => handlePageChange(pageNumber)}
+              className={`
+                  rounded-full w-8 h-8 flex items-center justify-center text-white font-bold text-sm transition-colors
+                  ${
+                    currentPage === pageNumber
+                      ? "bg-main-orange"
+                      : "mini-glass-card hover:bg-main-orange/50"
+                  }
+                `}
+            >
+              {pageNumber}
+            </button>
+          );
+        })}
       </div>
     </GlassContainer>
   );

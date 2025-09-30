@@ -42,6 +42,18 @@ const weather: WeatherData[] = [
     temperature: "10.7℃",
     icon: "cloudy.svg",
   },
+  {
+    id: 7,
+    time: "23시",
+    temperature: "10.7℃",
+    icon: "cloudy.svg",
+  },
+  {
+    id: 8,
+    time: "23시",
+    temperature: "10.7℃",
+    icon: "cloudy.svg",
+  },
 ];
 
 export default weather;

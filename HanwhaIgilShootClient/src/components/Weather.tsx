@@ -15,12 +15,12 @@ function Weather() {
           </p>
         </div>
       </div>
-      <div className="w-full flex justify-between mt-6">
+      <div className="w-full flex justify-between gap-3 mt-6">
         {/* 최대 6개 까지 */}
         {weather.map((weatherItems, index) => (
           <div
             key={index}
-            className="mini-glass-card flex flex-col items-center p-2"
+            className=" w-full mini-glass-card flex flex-col  items-center p-2"
           >
             <p className="text-l">{weatherItems.time}</p>
             <img
