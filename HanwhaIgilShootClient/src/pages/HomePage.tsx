@@ -16,6 +16,7 @@ function HomePage() {
         <Weather />
         <News />
       </div>
+      
     </div>
   );
 }
