@@ -1,6 +1,7 @@
 import PlayerInfo from "../components/PlayerInfo";
 import Weather from "../components/Weather";
 import News from "../components/News";
+import BiSection from "../components/BiSection";
 function HomePage() {
   return (
     <div className="flex flex-col items-center">
@@ -16,7 +17,7 @@ function HomePage() {
         <Weather />
         <News />
       </div>
-      
+      <BiSection />
     </div>
   );
 }
