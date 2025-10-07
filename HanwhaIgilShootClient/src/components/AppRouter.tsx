@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import HomePage from "../pages/HomePage";
 import CommunityPage from "../pages/CommunityPage";
+import LoginPage from "../pages/LoginPage";
 import { ROUTES } from "../constants/routes";
 
 function AppRouter() {
@@ -15,6 +16,7 @@ function AppRouter() {
             <Route path={ROUTES.COMMUNITY} element={<CommunityPage />} />
           </Routes>
         </main>
+        <LoginPage />
       </div>
     </Router>
   );

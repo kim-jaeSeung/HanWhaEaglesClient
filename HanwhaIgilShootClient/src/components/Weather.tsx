@@ -15,7 +15,7 @@ function Weather() {
           </p>
         </div>
       </div>
-      <div className="w-full flex justify-between gap-3 mt-6">
+      <div className="w-full flex justify-between gap-3 mt-6 overflow-auto scrollbar-hide">
         {/* 최대 6개 까지 */}
         {weather.map((weatherItems, index) => (
           <div

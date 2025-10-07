@@ -7,7 +7,7 @@ interface players {
 }
 function PlayerInfo() {
   return (
-    <div className="w-[80%] mx-auto">
+    <div className="w-[80%] mx-auto bg-[url('./img/mainTopBack.svg')]  bg-cover bg-center bg-no-repeat">
       <div className="overflow-x-auto scrollbar-hide">
         <div className="flex justify-start items-center gap-4 min-w-max px-4 py-4">
           {players.map((player: players, index: number) => {
