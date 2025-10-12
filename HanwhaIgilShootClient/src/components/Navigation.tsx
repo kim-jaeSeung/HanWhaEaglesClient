@@ -1,17 +1,11 @@
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ROUTES } from "../constants/routes";
 import BestPick from "./BestPick";
-
+import Login from "./Login";
 function Navigation() {
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
-
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate("/LoginPage");
-  };
 
   return (
     <>
@@ -45,17 +39,7 @@ function Navigation() {
               </Link>
             </li>
           </ul>
-          <div className="flex items-center space-x-4">
-            <button className="px-4 py-2 text-light-gray text-xl hover:text-main-orange transition-colors">
-              로그인
-            </button>
-            <button
-              className="px-4 py-2 bg-main-orange text-xl text-white rounded-lg hover:bg-dim-black transition-colors"
-              onClick={handleClick}
-            >
-              회원가입
-            </button>
-          </div>
+          <Login />
         </div>
       </nav>
     </>

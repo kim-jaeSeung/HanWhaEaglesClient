@@ -97,3 +97,8 @@ body {
   background-clip: text;
   text-fill-color: transparent;
 }
+
+/* css 초기화 */
+.m-auto {
+  margin: 0 auto;
+}
