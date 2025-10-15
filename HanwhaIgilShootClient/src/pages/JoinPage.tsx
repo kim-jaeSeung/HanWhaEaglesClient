@@ -1,3 +1,4 @@
+import Input from "../components/Input";
 function JoinPage() {
   return (
     <div className="mx-auto w-[90%] lg:w-[50%] bg-white rounded-2xl p-8 lg:p-10 shadow-lg mt-10 flex flex-col items-center justify-center">
@@ -24,7 +25,7 @@ function JoinPage() {
             아이디<span className="text-main-orange ml-1">*</span>
           </label>
           <div className="col-span-9 lg:col-span-7">
-            <input
+            <Input
               type="text"
               placeholder="아이디를 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
@@ -50,7 +51,7 @@ function JoinPage() {
             비밀번호<span className="text-main-orange ml-1">*</span>
           </label>
           <div className="col-span-12 lg:col-span-9">
-            <input
+            <Input
               type="password"
               placeholder="비밀번호를 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
@@ -66,7 +67,7 @@ function JoinPage() {
             비밀번호 확인<span className="text-main-orange ml-1">*</span>
           </label>
           <div className="col-span-12 lg:col-span-9">
-            <input
+            <Input
               type="password"
               placeholder="비밀번호를 한 번 더 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
@@ -81,7 +82,7 @@ function JoinPage() {
             닉네임
           </label>
           <div className="col-span-12 lg:col-span-9">
-            <input
+            <Input
               type="text"
               placeholder="사용할 닉네임을 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
@@ -97,7 +98,7 @@ function JoinPage() {
             이메일<span className="text-main-orange ml-1">*</span>
           </label>
           <div className="col-span-9 lg:col-span-7">
-            <input
+            <Input
               type="email"
               placeholder="이메일을 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
