@@ -199,7 +199,9 @@ function JoinPage() {
         <div className="pt-4">
           <button
             type="submit"
-            className="mx-auto block w-56 h-12 rounded-md bg-main-orange text-white font-bold hover:bg-main-orange/90 transition-colors"
+            className="mx-auto block w-56 h-12 rounded-md bg-main-orange text-white font-bold hover:bg-main-orange/90 transition-colors disabled:bg-gray-300 disabled:text-gray-500
+             disabled:cursor-not-allowed disabled:hover:bg-gray-300"
+            disabled={!isValid}
           >
             가입하기
           </button>
