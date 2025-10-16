@@ -12,7 +12,6 @@ export interface InputProps {
 function Input({ type, placeholder, className, autoComplete }: InputProps) {
   return (
     <>
-      {/* <input type="text" /> */}
       <input
         type={type}
         placeholder={placeholder}
