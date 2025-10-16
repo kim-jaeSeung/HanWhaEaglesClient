@@ -1,5 +1,34 @@
 import Input from "../components/Input";
+import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+interface JoinFormValues {
+  userId: string;
+  password: string;
+  passwordCheck: string;
+  nickname?: string;
+  email: string;
+}
 function JoinPage() {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    trigger,
+    formState: { errors, isValid },
+  } = useForm<JoinFormValues>({
+    mode: "onChange", // 입력 중 검증
+    reValidateMode: "onChange",
+  });
+
+  const onSubmit = (data: JoinFormValues) => {
+    console.log("회원가입 데이터:", data);
+    alert("회원가입 성공!");
+  };
+
+  const password = watch("password");
+  useEffect(() => {
+    void trigger("passwordCheck");
+  }, [password, trigger]);
   return (
     <div className="mx-auto w-[90%] lg:w-[50%] bg-white rounded-2xl p-8 lg:p-10 shadow-lg mt-10 flex flex-col items-center justify-center">
       {/* 헤더 */}
@@ -18,7 +47,10 @@ function JoinPage() {
       </div>
 
       {/* 폼 */}
-      <form className="mt-8 space-y-6 w-[70%]">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="mt-8 space-y-6 w-[70%]"
+      >
         {/* 아이디 */}
         <div className="grid grid-cols-12 gap-4">
           <label className="col-span-12 lg:col-span-3 self-center justify-self-start lg:justify-self-start text-left font-semibold text-black">
@@ -30,6 +62,18 @@ function JoinPage() {
               placeholder="아이디를 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
               autoComplete="username"
+              register={register("userId", {
+                required: "아이디는 필수 입력입니다.",
+                minLength: {
+                  value: 6,
+                  message: "아이디는 6자 이상이어야 합니다.",
+                },
+                pattern: {
+                  value: /^[a-zA-Z0-9]+$/,
+                  message: "영문 또는 숫자만 입력 가능합니다.",
+                },
+              })}
+              errorMessage={errors.userId?.message}
             />
             <p className="mt-2 text-xs text-black/60">
               6글자 이상의 영문 혹은 영문과 숫자를 조합
@@ -56,6 +100,18 @@ function JoinPage() {
               placeholder="비밀번호를 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
               autoComplete="new-password"
+              register={register("password", {
+                required: "비밀번호를 입력하세요.",
+                minLength: {
+                  value: 8,
+                  message: "비밀번호는 특수문자 포함 8자 이상이여야 합니다.",
+                },
+                pattern: {
+                  value: /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*]).+$/,
+                  message: "비밀번호는 특수문자 포함 8자 이상이여야 합니다.",
+                },
+              })}
+              errorMessage={errors.password?.message}
             />
             <p className="mt-2 text-xs text-black/60">특수문자 포함 8자 이상</p>
           </div>
@@ -72,6 +128,12 @@ function JoinPage() {
               placeholder="비밀번호를 한 번 더 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
               autoComplete="new-password"
+              register={register("passwordCheck", {
+                required: "비밀번호 확인을 입력하세요.",
+                validate: (value) =>
+                  value === password || "비밀번호가 일치하지 않습니다.",
+              })}
+              errorMessage={errors.passwordCheck?.message}
             />
           </div>
         </div>
@@ -87,6 +149,13 @@ function JoinPage() {
               placeholder="사용할 닉네임을 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
               autoComplete="nickname"
+              register={register("nickname", {
+                maxLength: {
+                  value: 6,
+                  message: "닉네임은 최대 6자까지 가능합니다.",
+                },
+              })}
+              errorMessage={errors.nickname?.message}
             />
             <p className="mt-2 text-xs text-black/60">6글자까지 가능</p>
           </div>
@@ -103,6 +172,14 @@ function JoinPage() {
               placeholder="이메일을 입력하세요."
               className="w-full h-12 rounded-md border border-black/10 px-4 placeholder:text-black/40 focus:outline-none focus:ring-2 focus:ring-main-orange text-custom-black focus:text-custom-black caret-custom-black"
               autoComplete="email"
+              register={register("email", {
+                required: "이메일은 필수입니다.",
+                pattern: {
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "올바른 이메일 형식이 아닙니다.",
+                },
+              })}
+              errorMessage={errors.email?.message}
             />
             <p className="mt-2 text-xs text-black/60">
               예 : example123@gmail.com
