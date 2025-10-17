@@ -1,6 +1,7 @@
 import Input from "../components/Input";
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 interface JoinFormValues {
   userId: string;
   password: string;
@@ -19,12 +20,13 @@ function JoinPage() {
     mode: "onChange", // 입력 중 검증
     reValidateMode: "onChange",
   });
+  const navigate = useNavigate();
 
   const onSubmit = (data: JoinFormValues) => {
     console.log("회원가입 데이터:", data);
     alert("회원가입 성공!");
+    navigate("/", { replace: true });
   };
-
   const password = watch("password");
   useEffect(() => {
     void trigger("passwordCheck");
@@ -202,6 +204,7 @@ function JoinPage() {
             className="mx-auto block w-56 h-12 rounded-md bg-main-orange text-white font-bold hover:bg-main-orange/90 transition-colors disabled:bg-gray-300 disabled:text-gray-500
              disabled:cursor-not-allowed disabled:hover:bg-gray-300"
             disabled={!isValid}
+            onClick={handleSubmit(onSubmit)}
           >
             가입하기
           </button>
