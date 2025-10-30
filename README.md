@@ -36,3 +36,69 @@ npm run dev
 ```bash
 npm run build
 ```
+
+```
+HanWhaEaglesClient
+├─ HanwhaIgilShootClient
+│  ├─ README.md
+│  ├─ eslint.config.js
+│  ├─ index.html
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ postcss.config.js
+│  ├─ public
+│  │  ├─ fonts
+│  │  ├─ img
+│  │  │  ├─ baseballBack.svg
+│  │  │  ├─ biLogo.svg
+│  │  │  ├─ bottomImg.svg
+│  │  │  ├─ cloudy.svg
+│  │  │  ├─ logo.svg
+│  │  │  ├─ mainBack.svg
+│  │  │  ├─ mainTopBack.svg
+│  │  │  ├─ sun.svg
+│  │  │  └─ sunny.svg
+│  │  └─ vite.svg
+│  ├─ src
+│  │  ├─ App.css
+│  │  ├─ App.tsx
+│  │  ├─ assets
+│  │  │  └─ react.svg
+│  │  ├─ components
+│  │  │  ├─ AppRouter.tsx
+│  │  │  ├─ BestPick.tsx
+│  │  │  ├─ BiSection.tsx
+│  │  │  ├─ BottomVideo.tsx
+│  │  │  ├─ Footer.tsx
+│  │  │  ├─ GlassContainer.tsx
+│  │  │  ├─ Login.tsx
+│  │  │  ├─ Navigation.tsx
+│  │  │  ├─ News.tsx
+│  │  │  ├─ PlayerInfo.tsx
+│  │  │  └─ Weather.tsx
+│  │  ├─ constants
+│  │  │  ├─ NewsObj.ts
+│  │  │  ├─ WeatherObj.ts
+│  │  │  ├─ player.ts
+│  │  │  └─ routes.ts
+│  │  ├─ hooks
+│  │  ├─ index.css
+│  │  ├─ main.tsx
+│  │  ├─ pages
+│  │  │  ├─ CommunityPage.tsx
+│  │  │  ├─ HomePage.tsx
+│  │  │  └─ LoginPage.tsx
+│  │  ├─ services
+│  │  ├─ store
+│  │  ├─ styles
+│  │  │  └─ navigation.css
+│  │  ├─ types
+│  │  └─ utils
+│  ├─ tailwind.config.js
+│  ├─ tsconfig.app.json
+│  ├─ tsconfig.json
+│  ├─ tsconfig.node.json
+│  └─ vite.config.ts
+└─ README.md
+
+```

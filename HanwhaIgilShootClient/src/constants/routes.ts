@@ -2,5 +2,5 @@ export const ROUTES = {
   HOME: "/",
   COMMUNITY: "/community",
   JOIN: "/join",
-  LOGIN: "/login",
+  LOGIN: "/LoginPage",
 } as const;

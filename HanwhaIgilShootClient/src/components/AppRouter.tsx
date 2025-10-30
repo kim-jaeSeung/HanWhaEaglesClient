@@ -4,6 +4,7 @@ import HomePage from "../pages/HomePage";
 import CommunityPage from "../pages/CommunityPage";
 import JoinPage from "../pages/JoinPage";
 import { ROUTES } from "../constants/routes";
+import LoginPage from "../pages/LoginPage";
 
 function AppRouter() {
   return (
@@ -15,6 +16,7 @@ function AppRouter() {
             <Route path={ROUTES.HOME} element={<HomePage />} />
             <Route path={ROUTES.COMMUNITY} element={<CommunityPage />} />
             <Route path={ROUTES.JOIN} element={<JoinPage />} />
+            <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           </Routes>
         </main>
       </div>
