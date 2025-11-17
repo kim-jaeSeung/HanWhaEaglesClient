@@ -39,8 +39,8 @@ function LoginPage() {
 
   return (
     <div className="mx-auto w-[90%] lg:w-[50%] rounded-2xl p-8 lg:p-10 flex flex-col items-center h-[100vh] login-shadow bg-white">
-      <img className="w-[60%] mb-10" alt="로고" src="/img/logo.svg"></img>
-      <div className="w-full flex justify-between items-center mb-6">
+      <img className="w-[40%] mb-10" alt="로고" src="/img/logo.svg"></img>
+      <div className="w-full max-w-[720px] flex justify-between items-center mb-6">
         <h2 className="text-black text-2xl">로그인</h2>
       </div>
       <form className="w-full max-w-[720px]" onSubmit={handleSubmit(onSubmit)}>
