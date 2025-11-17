@@ -1,7 +1,7 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import Input from "../components/Input";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 interface LoginFormValues {
   account: string; // 통합계정 또는 이메일
@@ -20,7 +20,7 @@ function LoginPage() {
     defaultValues: { account: "", password: "", autoLogin: false },
   });
 
-  React.useEffect(() => {
+  useEffect(() => {
     const prev = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     return () => {
@@ -28,7 +28,7 @@ function LoginPage() {
     };
   }, []);
 
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = (data: LoginFormValues) => {
     // TODO: 로그인 처리 API 연결

@@ -1,5 +1,3 @@
-import React from "react";
-
 function BiSection() {
   return (
     <div className="flex items-center justify-space-between w-[80%] mt-80 gap-12">
