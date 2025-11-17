@@ -2,18 +2,24 @@ import type { Post } from "../../types/community";
 import EyeIcon from "./EyeIcon";
 import MessageIcon from "./MessageIcon";
 import HeartIcon from "./HeartIcon";
+import { useNavigate } from "react-router-dom";
 
 interface PostCardProps {
   post: Post;
 }
 
 function StarButton() {
+  const handleStarClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 카드 클릭 이벤트 방지
+    // TODO: 즐겨찾기 로직
+  };
+
   return (
     <button
       type="button"
       aria-label="즐겨찾기"
       className="ml-auto text-gray-400 hover:text-yellow-500 transition-colors"
-      onClick={(e) => e.preventDefault()}
+      onClick={handleStarClick}
     >
       <svg
         viewBox="0 0 24 24"
@@ -42,8 +48,17 @@ function timeAgo(iso: string): string {
 }
 
 function PostCard({ post }: PostCardProps) {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/community/post/${post.id}`);
+  };
+
   return (
-    <article className="w-full md:w-1/2 lg:w-1/3 px-2 pb-4">
+    <article
+      className="w-full md:w-1/2 lg:w-1/3 px-2 pb-4 cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="h-full rounded-xl border border-gray-200 bg-white transition-shadow shadow-sm hover:shadow-md">
         <div className="p-5">
           <header className="flex items-start gap-2">

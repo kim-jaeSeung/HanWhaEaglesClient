@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import HomePage from "../pages/HomePage";
 import CommunityPage from "../pages/CommunityPage";
+import PostDetailPage from "../pages/PostDetailPage";
 import JoinPage from "../pages/JoinPage";
 import { ROUTES } from "../constants/routes";
 import LoginPage from "../pages/LoginPage";
@@ -15,6 +16,7 @@ function AppRouter() {
           <Routes>
             <Route path={ROUTES.HOME} element={<HomePage />} />
             <Route path={ROUTES.COMMUNITY} element={<CommunityPage />} />
+            <Route path="/community/post/:id" element={<PostDetailPage />} />
             <Route path={ROUTES.JOIN} element={<JoinPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           </Routes>

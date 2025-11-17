@@ -18,7 +18,7 @@ function CommunityPage() {
   );
 
   return (
-    <div className="px-4">
+    <div className="px-4 w-[70%] m-0 m-auto">
       <CategoryTabs
         categories={CATEGORIES}
         active={activeCategory}
