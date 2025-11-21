@@ -3,6 +3,7 @@ import Navigation from "../components/Navigation";
 import HomePage from "../pages/HomePage";
 import CommunityPage from "../pages/CommunityPage";
 import PostDetailPage from "../pages/PostDetailPage";
+import PostWritePage from "../pages/PostWritePage";
 import JoinPage from "../pages/JoinPage";
 import { ROUTES } from "../constants/routes";
 import LoginPage from "../pages/LoginPage";
@@ -17,6 +18,7 @@ function AppRouter() {
             <Route path={ROUTES.HOME} element={<HomePage />} />
             <Route path={ROUTES.COMMUNITY} element={<CommunityPage />} />
             <Route path="/community/post/:id" element={<PostDetailPage />} />
+            <Route path={ROUTES.COMMUNITY_WRITE} element={<PostWritePage />} />
             <Route path={ROUTES.JOIN} element={<JoinPage />} />
             <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           </Routes>
