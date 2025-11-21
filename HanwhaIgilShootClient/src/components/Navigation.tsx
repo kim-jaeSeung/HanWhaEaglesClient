@@ -5,7 +5,13 @@ import Login from "./Login";
 function Navigation() {
   const location = useLocation();
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => {
+    if (path === ROUTES.COMMUNITY) {
+      // 커뮤니티, 커뮤니티 상세, 커뮤니티 작성 모두 포함
+      return location.pathname.startsWith("/community");
+    }
+    return location.pathname === path;
+  };
 
   return (
     <>
